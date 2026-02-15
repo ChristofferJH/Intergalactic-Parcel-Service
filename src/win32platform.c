@@ -27,6 +27,25 @@ bool InitWin32Context(HINSTANCE hinstance)
 	windowsClass.lpszClassName = APPNAME_W;
 	RegisterClassW(&windowsClass);
 
+	windowHandle = CreateWindowW(APPNAME_W, APPNAME_W, WS_OVERLAPPEDWINDOW | WS_VISIBLE, CW_USEDEFAULT, CW_USEDEFAULT, 800, 600, NULL, NULL, hinstance, NULL);
+	deviceContextHandle = GetDC(windowHandle);
+
+	PIXELFORMATDESCRIPTOR pfd = { 0 };
+	pfd.nSize = sizeof(pfd);
+	pfd.nVersion = 1;
+	pfd.dwFlags = PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER;
+	pfd.iPixelType = PFD_TYPE_RGBA;
+	pfd.cColorBits = 32;
+	pfd.cDepthBits = 24;
+	pfd.iLayerType = PFD_MAIN_PLANE;
+
+	int pixelFormat = ChoosePixelFormat(deviceContextHandle, &pfd);
+	SetPixelFormat(deviceContextHandle, pixelFormat, &pfd);
+
+	renderingContextHandle = wglCreateContext(deviceContextHandle);
+
+	wglMakeCurrent(deviceContextHandle, renderingContextHandle);
+
 
 
 	return true;
@@ -50,7 +69,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 	{
 		case WM_CLOSE:
 			running = false;
-			//DestroyWindow(windowHandle);
+			DestroyWindow(windowHandle);
 			break;
 
 		case WM_DESTROY:
@@ -64,6 +83,6 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 
 void ShutdownWin32Context(HINSTANCE hInstance)
 {
-	//wglMakeCurrent(NULL, NULL);
+	wglMakeCurrent(NULL, NULL);
 	UnregisterClassW(APPNAME_W, hInstance);
 }

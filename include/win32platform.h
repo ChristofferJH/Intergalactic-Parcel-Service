@@ -7,10 +7,11 @@
 #define APPNAME_W L"Intergalactic Parcel Service"
 
 extern HWND windowHandle;
+extern HDC deviceContextHandle;
 
 void InitDebugConsole();
-bool InitWin32Context(HINSTANCE hinstance);
-void ShutdownWin32Context();
+bool InitWin32Context(HINSTANCE hInstance);
+void ShutdownWin32Context(HINSTANCE hInstance);
 void Win32MessageLoop();
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);
 

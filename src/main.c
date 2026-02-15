@@ -14,8 +14,12 @@ int wWinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int n
 	{
 
 		Win32MessageLoop();
+
+
+		SwapBuffers(deviceContextHandle);
 	}
 
 
+	ShutdownWin32Context(hinstance);
 	ExitProcess(0);
 }
