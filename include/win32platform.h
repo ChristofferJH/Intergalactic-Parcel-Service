@@ -2,10 +2,11 @@
 #define WIN32PLATFORM_H
 
 #include "core.h"
-#define WIN32_MEAN_AND_LEAN
-#include <Windows.h>
+#include "win32platformImport.h"
 
 #define APPNAME_W L"Intergalactic Parcel Service"
+
+extern HWND windowHandle;
 
 void InitDebugConsole();
 bool InitWin32Context(HINSTANCE hinstance);

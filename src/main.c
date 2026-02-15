@@ -13,7 +13,6 @@ int wWinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int n
 	while(running)
 	{
 
-
 		Win32MessageLoop();
 	}
 

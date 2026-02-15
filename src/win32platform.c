@@ -1,6 +1,13 @@
 #include "win32platform.h"
 
 
+WNDCLASSW windowsClass = { 0 };
+MSG msg = { 0 };
+LPMSG lpmsg = &msg;
+HWND windowHandle = NULL;
+HDC deviceContextHandle = NULL;
+HGLRC renderingContextHandle = NULL;
+
 void InitDebugConsole()
 {
 #ifdef _DEBUG
@@ -13,8 +20,6 @@ void InitDebugConsole()
 
 }
 
-WNDCLASSW windowsClass = { 0 };
-
 bool InitWin32Context(HINSTANCE hinstance)
 {
 	windowsClass.hInstance = hinstance;
@@ -23,11 +28,10 @@ bool InitWin32Context(HINSTANCE hinstance)
 	RegisterClassW(&windowsClass);
 
 
+
 	return true;
 }
 
-MSG msg = { 0 };
-LPMSG lpmsg = &msg;
 
 void Win32MessageLoop()
 {
