@@ -121,6 +121,20 @@ bool InitWin32Context(HINSTANCE hinstance)
 	glDepthFunc(GL_LEQUAL);
 	glViewport(0, 0, screenWidth, screenHeight);
 
+
+
+	directory = malloc(sizeof(wchar_t) * MAXPATH);
+	if (directory)
+	{
+		GetModuleFileNameW(NULL, directory, MAXPATH);
+		PathCchRemoveFileSpec(directory, MAXPATH);
+
+	}
+	else {
+		FatalError(L"Failed allocating memory");
+		return false;
+	}
+
 	return true;
 }
 
@@ -160,4 +174,5 @@ void ShutdownWin32Context(HINSTANCE hInstance)
 	wglDeleteContext(renderingContextHandle);
 	ReleaseDC(windowHandle,deviceContextHandle);
 	UnregisterClassW(APPNAME_W, hInstance);
+	free(directory);
 }

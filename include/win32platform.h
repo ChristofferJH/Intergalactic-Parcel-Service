@@ -3,6 +3,9 @@
 
 #include "core.h"
 #include "import/win32platformImport.h"
+#include <PathCch.h>
+
+#include "filehandling.h"
 #include "openGL.h"
 
 extern HWND windowHandle;
