@@ -2,11 +2,13 @@
 #define WIN32PLATFORM_H
 
 #include "core.h"
-#include "win32platformImport.h"
-
+#include "import/win32platformImport.h"
+#include "openGL.h"
 
 extern HWND windowHandle;
 extern HDC deviceContextHandle;
+extern int screenWidth;
+extern int screenHeight;
 
 void InitDebugConsole();
 bool InitWin32Context(HINSTANCE hInstance);
