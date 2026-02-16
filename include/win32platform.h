@@ -4,7 +4,6 @@
 #include "core.h"
 #include "win32platformImport.h"
 
-#define APPNAME_W L"Intergalactic Parcel Service"
 
 extern HWND windowHandle;
 extern HDC deviceContextHandle;

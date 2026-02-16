@@ -5,6 +5,8 @@
 #include <stdbool.h>
 #include "utils/utils_errors.h"
 
+#define APPNAME_W L"Intergalactic Parcel Service"
+
 extern bool running;
 
 #endif

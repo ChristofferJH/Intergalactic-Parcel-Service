@@ -22,10 +22,9 @@ add_executable(${PROJ_NAME} WIN32 ${SOURCE_FILES})
 
 
 #headers, compiler options, libraries
-target_include_directories(${PROJ_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include" )
+target_include_directories(${PROJ_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_compile_definitions(${PROJ_NAME} PRIVATE UNICODE _UNICODE)
 target_compile_options(${PROJ_NAME} PRIVATE /GR- /EHs- ${DISABLE_USELESS_MICROSLOB_WARNINGS})
 target_link_libraries(${PROJ_NAME} openGL32 gdi32 user32 kernel32 xaudio2.lib winmm.lib)
 
-#external headers
-target_include_directories(${PROJ_NAME} PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/external" )
+

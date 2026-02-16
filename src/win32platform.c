@@ -8,6 +8,9 @@ HWND windowHandle = NULL;
 HDC deviceContextHandle = NULL;
 HGLRC renderingContextHandle = NULL;
 
+//wglCreateContextAttribsARBProc wglCreateContextAttribsARB = NULL;
+//wglChoosePixelFormatARBProc wglChoosePixelFormatARB = NULL;
+
 void InitDebugConsole()
 {
 #ifdef _DEBUG
@@ -46,7 +49,7 @@ bool InitWin32Context(HINSTANCE hinstance)
 
 	wglMakeCurrent(deviceContextHandle, renderingContextHandle);
 
-
+	/*wglGetProcAddress(*/
 
 	return true;
 }
