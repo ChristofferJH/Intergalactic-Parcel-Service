@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <stdbool.h>
-#include "utils/utils_errors.h"
+#include "utils/utils_debug.h"
 
 #define APPNAME_W L"Intergalactic Parcel Service"
 
