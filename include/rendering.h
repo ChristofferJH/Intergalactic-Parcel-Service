@@ -4,6 +4,7 @@
 #include "openGL.h"
 #include "ui.h"
 
+bool InitRendering();
 void Draw();
 
 
