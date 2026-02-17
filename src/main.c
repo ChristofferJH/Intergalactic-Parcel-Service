@@ -7,22 +7,27 @@ int wWinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int n
 
 
 	running = InitWin32Context(hinstance);
-	InitMemory();
+
+	if (!InitMemory())
+	{
+		FatalError(L"Error: could not allocate memory");
+		running = false;
+	}
+
 	InitTime();
 	double lastTime = GetTime();
-
-	ConOut(GetFullPath(L"test\\lul.gq"));
-
+	GotoMainMenu();
 
 	while(running)
 	{
 		Win32MessageLoop();
+		ProcessEventQueue();
 
 		double currentTime = GetTime();
-
 		double dt = currentTime - lastTime;
 		lastTime = currentTime;
 
+		//do stuff
 		
 		Draw();
 		SwapBuffers(deviceContextHandle);

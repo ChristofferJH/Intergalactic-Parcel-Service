@@ -27,4 +27,14 @@ target_compile_definitions(${PROJ_NAME} PRIVATE UNICODE _UNICODE)
 target_compile_options(${PROJ_NAME} PRIVATE /GR- /EHs- ${DISABLE_USELESS_MICROSLOB_WARNINGS})
 target_link_libraries(${PROJ_NAME} openGL32 gdi32 user32 kernel32 xaudio2.lib winmm.lib pathcch.lib)
 
+set(ASSET_SOURCE_DIRECTORY  "${CMAKE_CURRENT_SOURCE_DIR}/assets")
+set(ASSET_DESTINATION_DIRECTORY "$<TARGET_FILE_DIR:${PROJ_NAME}>/assets")
+
+add_custom_target(
+copy_assets ALL
+
+COMMAND "${CMAKE_COMMAND}" -E copy_directory "${ASSET_SOURCE_DIRECTORY}" "${ASSET_DESTINATION_DIRECTORY}"
+)
+
+add_dependencies(copy_assets ${PROJECT_NAME})
 

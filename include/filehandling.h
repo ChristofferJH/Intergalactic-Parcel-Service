@@ -9,6 +9,7 @@ extern wchar_t* directory;
 
 char* LoadTextFile(wchar_t* relativePath);
 char* LoadTexture(wchar_t* relativePath);
+
 wchar_t* GetFullPath(wchar_t* relativePath);
 
 #endif
