@@ -6,21 +6,17 @@ Event eventQueue[MAXEVENTS];
 
 void ProcessEventQueue()
 {
-	for (size_t i = 0; i < eventQueue; i++)
+	for (size_t i = 0; i < eventCount; i++)
 	{
 
-		switch (eventQueue[i])
-		{
-			
-
-		}
+		
 	}
 
 	eventCount = 0;
 }
 
-void PostEvent(Event event)
+void PostEvent(Event e)
 {
-	eventQueue[eventCount] = event;
+	eventQueue[eventCount] = e;
 	eventCount++;
 }

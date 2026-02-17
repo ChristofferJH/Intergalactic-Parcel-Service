@@ -1,5 +1,13 @@
 #include "rendering.h"
 
+bool InitRendering()
+{
+
+
+
+
+};
+
 void Draw()
 {
 

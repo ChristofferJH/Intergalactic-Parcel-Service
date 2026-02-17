@@ -1,17 +1,22 @@
 #ifndef EVENTS_H
 #define EVENTS_H
 
+#include "core.h"
+
 #define MAXEVENTS 256
 
-enum Event
+struct Event
 {
-	event_none,
-	event_a
+	float x;
+	float y;
+
+
 }typedef Event;
 
 extern Event eventQueue[MAXEVENTS];
 
 void ProcessEventQueue();
-void PostEvent(Event event)
+
+void PostEvent(Event e);
 
 #endif

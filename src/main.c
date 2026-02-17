@@ -21,7 +21,7 @@ int wWinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int n
 	while(running)
 	{
 		Win32MessageLoop();
-		ProcessEventQueue();
+	
 
 		double currentTime = GetTime();
 		double dt = currentTime - lastTime;
@@ -29,6 +29,8 @@ int wWinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int n
 
 		//do stuff
 		
+		ProcessEventQueue();
+
 		Draw();
 		SwapBuffers(deviceContextHandle);
 	}
