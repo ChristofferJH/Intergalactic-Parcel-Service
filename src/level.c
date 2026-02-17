@@ -1,5 +1,6 @@
 #include "level.h"
 #include "ui.h"
+
 wchar_t* currentLevelName;
 
 void GotoMainMenu()
