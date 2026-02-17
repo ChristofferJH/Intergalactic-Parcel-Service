@@ -7,9 +7,12 @@ int wWinMain(HINSTANCE hinstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int n
 
 
 	running = InitWin32Context(hinstance);
-
+	InitMemory();
 	InitTime();
 	double lastTime = GetTime();
+
+	ConOut(GetFullPath(L"test\\lul.gq"));
+
 
 	while(running)
 	{
